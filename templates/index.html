@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <form action="" method="POST">{% csrf_token %}
+        <select name="gender" id="gender" class="form">
+            <option value="" disabled selected>Select Character</option>
+            <option value="Girl">Girl</option>
+            <option value="Boy">Boy</option>
+            <option value="Kid(Girl)">Kid(Girl)</option>
+            <option value="Kid(Boy)">Kid(Boy)</option>
+        </select>
+        <br>
+        <input type="text" name="color" id="color" class="form" placeholder="Enter Color:">
+        <br>
+        <select name="element" id="element" class="form">
+            <option value="" disabled selected>Select Power Element</option>
+            <optgroup label="Fire">
+              <option value="heat">Heat</option>
+              <option value="flames">Flames</option>
+              <option value="smoke">Smoke</option>
+              <option value="sparks">Sparks</option>
+              <option value="ash">Ash</option>
+            </optgroup>
+          
+            <optgroup label="Water">
+              <option value="ice">Ice</option>
+              <option value="snow">Snow</option>
+              <option value="steam">Steam</option>
+              <option value="waves">Waves</option>
+              <option value="currents">Currents</option>
+            </optgroup>
+          
+            <optgroup label="Air">
+              <option value="wind">Wind</option>
+              <option value="clouds">Clouds</option>
+              <option value="lightning">Lightning</option>
+              <option value="thunder">Thunder</option>
+              <option value="storms">Storms</option>
+            </optgroup>
+          
+            <optgroup label="Earth">
+              <option value="rocks">Rocks</option>
+              <option value="soil">Soil</option>
+              <option value="sand">Sand</option>
+              <option value="mud">Mud</option>
+              <option value="lava">Lava</option>
+            </optgroup>
+          
+            <optgroup label="Light">
+              <option value="brightness">Brightness</option>
+              <option value="darkness">Darkness</option>
+              <option value="rainbows">Rainbows</option>
+              <option value="reflections">Reflections</option>
+              <option value="shadows">Shadows</option>
+            </optgroup>
+          
+            <optgroup label="Darkness">
+              <option value="night">Night</option>
+              <option value="shadows">Shadows</option>
+              <option value="fear">Fear</option>
+              <option value="mystery">Mystery</option>
+              <option value="silence">Silence</option>
+            </optgroup>
+          
+            <optgroup label="Lightning">
+              <option value="electricity">Electricity</option>
+              <option value="sparks">Sparks</option>
+              <option value="thunder">Thunder</option>
+              <option value="power">Power</option>
+              <option value="energy">Energy</option>
+            </optgroup>
+          
+            <optgroup label="Ice">
+              <option value="cold">Cold</option>
+              <option value="snow">Snow</option>
+              <option value="frost">Frost</option>
+              <option value="glaciers">Glaciers</option>
+              <option value="icebergs">Icebergs</option>
+            </optgroup>
+          
+            <optgroup label="Energy">
+              <option value="power">Power</option>
+              <option value="force">Force</option>
+              <option value="speed">Speed</option>
+              <option value="strength">Strength</option>
+              <option value="destruction">Destruction</option>
+            </optgroup>
+          
+            <optgroup label="Nature">
+              <option value="plants">Plants</option>
+              <option value="animals">Animals</option>
+              <option value="weather">Weather</option>
+              <option value="seasons">Seasons</option>
+              <option value="elements">Elements</option>
+            </optgroup>
+          
+            <optgroup label="Animals">
+              <option value="strength">Strength</option>
+              <option value="speed">Speed</option>
+              <option value="agility">Agility</option>
+              <option value="venom">Venom</option>
+              <option value="poison">Poison</option>
+            </optgroup>
+          
+            <optgroup label="Plants">
+              <option value="thorns">Thorns</option>
+              <option value="poison">Poison</option>
+              <option value="vines">Vines</option>
+              <option value="flowers">Flowers</option>
+              <option value="fruits">Fruits</option>
+            </optgroup>
+          
+            <optgroup label="Weather">
+              <option value="wind">Wind</option>
+              <option value="rain">Rain</option>
+              <option value="snow">Snow</option>
+              <option value="hail">Hail</option>
+              <option value="lightning">Lightning</option>
+            </optgroup>
+            </select>
+            <button>Generate</button>
+    </form>
+    </div>
+    <br>
+    
+    <div class="container">
+        {% for key, value in attack.items %}
+            <div class="card">
+                <div class="imgBx">
+                    <img src="data:image/jpeg;base64,{{ img_list }}">
+                </div>
+                <div class="contentBx">
+                    <h2>{{ key }}</h2>
+                    <div class="color">
+                        <h3>{{ value }}</h3>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    
+</body>
+
+</html>
